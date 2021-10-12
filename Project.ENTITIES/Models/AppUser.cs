@@ -10,6 +10,8 @@ namespace Project.ENTITIES.Models
     public class AppUser:BaseEntity
     {
 
+        //Merhaba
+
         public AppUser()
         {
             Role = UserRole.Member;
