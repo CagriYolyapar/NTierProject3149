@@ -10,6 +10,8 @@ namespace Project.COMMON.Tools
     public static class DantexCrypt
     {
         //Merhaba hocam merhaba arkadaşlar
+
+        //Merhaba Dogancan : )
         public static string Crypt(string a)
         {
             Random rnd = new Random();
