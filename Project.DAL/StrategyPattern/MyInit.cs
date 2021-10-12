@@ -32,6 +32,9 @@ namespace Project.DAL.StrategyPattern
 
             for (int i = 0; i < 10; i++)
             {
+                
+
+
                 AppUser ap = new AppUser();
                 ap.UserName = new Internet("tr").UserName();
                 ap.Password = new Internet("tr").Password();
