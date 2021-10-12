@@ -13,6 +13,8 @@ namespace Project.COMMON.Tools
 
         //Merhaba Dogancan : )
 
+        //Noluyor yahu
+
         //Hicbir şeye bakmadan push ediyorum...
         public static string Crypt(string a)
         {
