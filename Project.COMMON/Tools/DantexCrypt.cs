@@ -12,6 +12,8 @@ namespace Project.COMMON.Tools
         //Merhaba hocam merhaba arkadaşlar
 
         //Merhaba Dogancan : )
+
+        //Hicbir şeye bakmadan push ediyorum...
         public static string Crypt(string a)
         {
             Random rnd = new Random();
