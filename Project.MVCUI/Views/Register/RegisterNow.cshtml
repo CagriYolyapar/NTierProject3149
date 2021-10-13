@@ -1,4 +1,4 @@
-﻿
+﻿@model AppUserVM
 @{
     Layout = null;
 }
@@ -34,7 +34,21 @@
 
 
                <div class="login-wrap">
-                    
+                     @Html.TextBoxFor(x => x.AppUser.UserName, new {@class="form-control",placeholder="Kullanıcı ismi giriniz"})
+                   @Html.PasswordFor(x => x.AppUser.Password, new {@class="form-control",placeholder="Sifre giriniz"})
+                   @Html.TextBoxFor(x => x.AppUser.Email, new {@class="form-control",placeholder="Email giriniz"})
+                   @Html.TextBoxFor(x => x.UserProfile.FirstName, new {@class="form-control",placeholder="İsminizi giriniz"})
+                   @Html.TextBoxFor(x => x.UserProfile.LastName, new {@class="form-control",placeholder="Soyisminizi giriniz"})
+
+
+                   <br />
+
+                   <button class="btn btn-primary">Üye ol</button>
+
+                   <div>
+                       @Html.ActionLink("Giris Yap","Login","Home")
+                   </div>
+
                </div>
             }
   </div>

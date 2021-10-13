@@ -1,0 +1,1 @@
+﻿1=> İşlem gören class'ların validation yapılarını olusturun
