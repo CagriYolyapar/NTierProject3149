@@ -28,9 +28,13 @@
 </head>
 <body class="login-body">
   <div class="container">
+
+      <h2>@ViewBag.ZatenVar</h2>
       @using(Html.BeginForm("RegisterNow","Register",FormMethod.Post,new { @class = "form-signin" }))
             {
-               <h2>Üye olunuz</h2>
+
+          <br />  <center><h2>Üye olunuz</h2>   </center>
+               
 
 
                <div class="login-wrap">
