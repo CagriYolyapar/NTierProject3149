@@ -1,10 +1,10 @@
 ﻿/* Formating function for row details */
 function fnFormatDetails(oTable, nTr) {
-    var aData = oTable.fnGetData(nTr);
-    var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+    let aData = oTable.fnGetData(nTr);
+    let sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
     sOut += '<tr><td>Urunleri:</td><td> <a title="Icerik" href="/Admin/Product/ProductList/'+aData[1]+'">'+aData[2]+' ürünleri </a>     </td></tr>';
     sOut += '<tr><td>Tek Görünüm:</td><td><a title="Detay" href="/Admin/Category/CategoryList/'+aData[1]+'">'+aData[2]+' </a> </td></tr>';
-    sOut += '<tr><td>Kategori Ekleme:</td><td>And any further details here (images etc)</td></tr>';
+    sOut += '<tr><td>Kategori Ekleme:</td><td><a href="/Admin/Category/AddCategory" class="btn btn-primary"> Kategori Ekle </a></td></tr>';
     sOut += '</table>';
 
     return sOut;
@@ -24,8 +24,8 @@ $(document).ready(function () {
     /*
      * Insert a 'details' column to the table
      */
-    var nCloneTh = document.createElement('th');
-    var nCloneTd = document.createElement('td');
+    let nCloneTh = document.createElement('th');
+    let nCloneTd = document.createElement('td');
     nCloneTd.innerHTML = '<img src="/OuterTools/assets/advanced-datatable/examples/examples_support/details_open.png">';
     nCloneTd.className = "center";
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
     /*
      * Initialse DataTables, with no sorting on the 'details' column
      */
-    var oTable = $('#hidden-table-info').dataTable({
+    let oTable = $('#hidden-table-info').dataTable({
         "aoColumnDefs": [
             { "bSortable": false, "aTargets": [0] }
         ],
@@ -52,7 +52,7 @@ $(document).ready(function () {
      * rather it is done here
      */
     $('#hidden-table-info tbody td img').live('click', function () {
-        var nTr = $(this).parents('tr')[0];
+        let nTr = $(this).parents('tr')[0];
         if (oTable.fnIsOpen(nTr)) {
             /* This row is already open - close it */
             this.src = "/OuterTools/assets/advanced-datatable/examples/examples_support/details_open.png";
