@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace Project.MVCUI.Areas.Admin.Controllers
 {
 
-    [AdminAuthentication]
+   
     public class CategoryController : Controller
     {
 
