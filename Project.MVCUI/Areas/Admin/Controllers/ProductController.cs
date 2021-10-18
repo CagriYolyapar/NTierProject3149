@@ -66,6 +66,8 @@ namespace Project.MVCUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult UpdateProduct(Product product)
         {
+            //resim == null
+
             _pRep.Update(product);
             return RedirectToAction("ProductList");
         }
