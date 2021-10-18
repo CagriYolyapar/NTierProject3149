@@ -54,184 +54,59 @@
 
             @foreach (Product item in Model.PagedProducts)
             {
-                <!--Todo:Urun Listeleme-->
+
+
+<div class="col-md-4">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        @if (item.ImagePath == null ||item.ImagePath == "3")
+                {
+                        <img src="http://lorempixel.com/640/480/nightlife/" alt="Resim yok" width="100" height="300" title="@item.ProductName" /> 
+                }
+                else
+                {
+                    <img src="@item.ImagePath" alt="Resim yok" width="100" height="300" title="@item.ProductName" />
+                }
+                      @*
+                          
+                          Url.Action'in bize verdigi fayda, asagıdaki gibi belli durumlarda ActionLink kullanmak tasarımımıza uygun olmadıgı zamanlarda ortaya cıkar
+
+                          //ActionLink => <a href"/Admin/Home/Category"> </a>
+
+                          //Url.Action => "/Admin/Home/Category"
+                      
+                          *@
+                        
+                        <a href="@Url.Action("AddToCart",new { id=item.ID})" class="adtocart">
+                            <i class="icon-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title" title="@item.ProductName">
+                                @item.ProductName
+                            </a>
+                        </h4>
+                        <p class="price">$@item.UnitPrice</p>
+                    </div>
+                </section>
+            </div>
             }
 
 
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro-1.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro1.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro2.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro3.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro-1.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro2.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro1.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro3.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-4">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="img/product-list/pro-1.jpg" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="icon-shopping-cart"></i>
-                        </a>
-                    </div>
-
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                Leopard Shirt Dress
-                            </a>
-                        </h4>
-                        <p class="price">$300.00</p>
-                    </div>
-                </section>
-            </div>
+            
+      
         </div>
     </div>
 </div>
 
-
+@section Sepet{
+    <li>
+        
+        <a href="@Url.Action("CartPage","Shopping")"> <i class="icon-shopping-cart"></i> Cart </a>
+       
+        </li>
+    
+    }
 

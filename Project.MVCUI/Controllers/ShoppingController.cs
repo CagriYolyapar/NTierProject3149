@@ -1,5 +1,7 @@
 ﻿using PagedList;
 using Project.BLL.DesignPatterns.GenericRepository.ConcRep;
+using Project.ENTITIES.Models;
+using Project.MVCUI.Models.ShoppingTools;
 using Project.MVCUI.VMClasses;
 using System;
 using System.Collections.Generic;
@@ -46,6 +48,55 @@ namespace Project.MVCUI.Controllers
             if (categoryID != null) TempData["catID"] = categoryID;
 
             return View(pavm);
+        }
+
+        public ActionResult AddToCart(int id)
+        {
+            Cart c = Session["scart"] == null ? new Cart() : Session["scart"] as Cart;
+            Product eklenecekUrun = _pRep.Find(id);
+
+            CartItem ci = new CartItem
+            {
+                ID = eklenecekUrun.ID,
+                Name = eklenecekUrun.ProductName,
+                Price = eklenecekUrun.UnitPrice,
+                ImagePath = eklenecekUrun.ImagePath
+            };
+            c.SepeteEkle(ci);
+            Session["scart"] = c;
+            return RedirectToAction("ShoppingList");
+        }
+
+        public ActionResult CartPage()
+        {
+            if(Session["scart"] != null)
+            {
+                CartPageVM cpvm = new CartPageVM();
+                Cart c = Session["scart"] as Cart;
+                cpvm.Cart = c;
+                return View(cpvm);
+            }
+
+            TempData["bos"] = "Sepetinizde ürün bulunmamatadır";
+            return RedirectToAction("ShoppingList");
+        }
+
+        public ActionResult DeleteFromCart(int id)
+        {
+            if (Session["scart"] != null)
+            {
+                Cart c = Session["scart"] as Cart;
+                c.SepettenSil(id);
+                if(c.Sepetim.Count == 0)
+                {
+                    Session.Remove("scart");
+                    TempData["sepetBos"] = "Sepetinizde ürün bulunmamaktadır";
+                    return RedirectToAction("ShoppingList");
+                }
+                return RedirectToAction("CartPage");
+            }
+
+            return RedirectToAction("ShoppingList");
         }
     }
 }
